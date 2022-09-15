@@ -2,10 +2,10 @@
 # Modified for Key:Value
 
 # HashTable class using chaining.
-class hash_table:
+class HashTable:
     # Constructor with optional initial capacity parameter.
     # Assigns all buckets with an empty list.
-    def __init__(self, initial_capacity=10):
+    def __init__(self, initial_capacity=20):
         # initialize the hash table with empty bucket list entries.
         self.table = []
         for i in range(initial_capacity):
@@ -34,18 +34,14 @@ class hash_table:
     # Returns the item if found, or None if not found.
 
 
-    def search(self, key):
-        # get the bucket list where this key would be.
+    # Lookup items in hash table
+    def lookup(self, key):
         bucket = hash(key) % len(self.table)
         bucket_list = self.table[bucket]
-        # print(bucket_list)
-
-        # search for the key in the bucket list
-        for kv in bucket_list:
-            # print (key_value)
-            if kv[0] == key:
-                return kv[1]  # value
-        return None
+        for pair in bucket_list:
+            if key == pair[0]:
+                return pair[1]
+        return None  # no pair[0] matches key 0
 
     # Removes an item with matching key from the hash table.
 
