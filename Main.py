@@ -1,3 +1,4 @@
+#Abisola Oseni 001345382
 import csv
 import datetime
 
@@ -125,7 +126,7 @@ def deliverpackages(truck, starttime):
 
 truck1_miles = deliverpackages(truck1, '08:05:00')
 truck2_miles = deliverpackages(truck2, '09:05:00')
-truck3_miles = deliverpackages(truck3, '10:05:00')
+truck3_miles = deliverpackages(truck3, '10:30:00')
 
 #total miles from all three trucks
 total_miles = truck1_miles + truck2_miles +truck3_miles
