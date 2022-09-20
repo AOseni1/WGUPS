@@ -11,10 +11,16 @@ class Package:
         self.delivery_time = None
         self.distance = 0
     def __str__(self):
-        return f'{self.package_id}\t {self.address}\t {self.city}\t {self.zipcode}\t {self.deadline}\t {self.package_weight}\t {self.delivery_status}\t {self.notes}'
+        return f'{self.package_id}\t {self.address}\t {self.city}\t {self.zipcode}\t {self.package_weight}\t {self.deadline}\t {self.delivery_time}\t{self.delivery_status}\t {self.notes}'
 
-    def isDelivered(self):
-        return self.delivery_time is not None
+    def print_status_for_time(self, requested_time, truck_start_time):
+        package_status = "At Hub"
 
-    def isNotDelivered(self):
-        return not self.isDelivered()
+        if requested_time < truck_start_time:
+            package_status = "At Hub"
+        elif requested_time > self.delivery_time:
+            package_status = "Delivered"
+        else:
+            package_status = "En route"
+        return f'{self.package_id}\t {self.address}\t {self.city}\t {self.zipcode}\t {self.package_weight}\t {self.deadline}\t {self.delivery_time}\t{package_status}\t {self.notes}'
+
